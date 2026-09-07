@@ -1,34 +1,33 @@
-﻿using battleArena.Warrios;
+﻿using BattleArena.Warriors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace battleArena
+namespace BattleArena
 {
+
     internal class Program
     {
         static void Main(string[] args)
         {
-            Warrior Rene = new Warrior("Rene", 100, 30, "Fireball");
-            Warrior Bosseng = new Warrior("Bosseng", 200, 25, "Lightning Strike");
-            Warrior Jb = new Warrior("Jb", 300, 40, "Ice Blast");
-
-
-            Rene.DisplayStatus();
-            Bosseng.DisplayStatus();
-            Jb.DisplayStatus();
-
-
             int round = 1;
+            var Rene = new Marksman("Rene", 100, 30);
+            var Bosseng = new Fighter("Bosseng", 200, 15);
+            var Jb = new Tank("Jb", 150, 30);
+
+            Rene.DisplayStats();
+            Bosseng.DisplayStats();
+            Jb.DisplayStats();
+
             while (Rene.IsAlive && Bosseng.IsAlive && Jb.IsAlive)
             {
-                Console.WriteLine("----------Round {round} ----------");
+
                 Rene.Attack(Bosseng);
-                Bosseng.Attack(Jb);
+                Console.WriteLine("----------------------------------------------");
                 Jb.Attack(Rene);
-                Console.WriteLine("--------------------------------");
+                Console.WriteLine("----------------------------------------------");
                 round++;
             }
 
