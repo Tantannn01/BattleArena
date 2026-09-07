@@ -11,20 +11,15 @@ namespace battleArena
     {
         static void Main(string[] args)
         {
-            Warrior Rene = new Warrior();
-            Rene.Name = "Rene";
-            Rene.Health = 100;
-            Rene.AttackPower = 30;
+            Warrior Rene = new Warrior("Rene", 100, 30);
 
-            Warrior Bosseng = new Warrior();
-            Bosseng.Name = "Bosseng";
-            Bosseng.Health = 200;
-            Bosseng.AttackPower = 25;
 
-            Warrior Jb = new Warrior();
-            Jb.Name = "Jb";
-            Jb.Health = 300;
-            Jb.AttackPower = 40;
+            Warrior Bosseng = new Warrior("Bosseng", 200, 25);
+
+
+            Warrior Jb = new Warrior("Jb", 300, 40);
+
+
 
             Console.WriteLine($"{Rene.Name} has  " +
                 $"{Rene.Health} health and {Rene.AttackPower} " + $"attack power.");
