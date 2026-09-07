@@ -11,25 +11,26 @@ namespace battleArena
     {
         static void Main(string[] args)
         {
-            Warrior Rene = new Warrior("Rene", 100, 30);
+            Warrior Rene = new Warrior("Rene", 100, 30, "Fireball");
+            Warrior Bosseng = new Warrior("Bosseng", 200, 25, "Lightning Strike");
+            Warrior Jb = new Warrior("Jb", 300, 40, "Ice Blast");
 
 
-            Warrior Bosseng = new Warrior("Bosseng", 200, 25);
+            Rene.DisplayStatus();
+            Bosseng.DisplayStatus();
+            Jb.DisplayStatus();
 
 
-            Warrior Jb = new Warrior("Jb", 300, 40);
-
-
-
-            Console.WriteLine($"{Rene.Name} has  " +
-                $"{Rene.Health} health and {Rene.AttackPower} " + $"attack power.");
-            Console.WriteLine("--------------------------------");
-            Console.WriteLine($"{Bosseng.Name} has" +
-                $" {Bosseng.Health} health and {Bosseng.AttackPower} " + $"attack power.");
-            Console.WriteLine("--------------------------------");
-            Console.WriteLine($"{Jb.Name} has" +
-               $" {Jb.Health} health and {Jb.AttackPower} " + $"attack power.");
-            Console.WriteLine("--------------------------------");
+            int round = 1;
+            while (Rene.IsAlive && Bosseng.IsAlive && Jb.IsAlive)
+            {
+                Console.WriteLine("----------Round {round} ----------");
+                Rene.Attack(Bosseng);
+                Bosseng.Attack(Jb);
+                Jb.Attack(Rene);
+                Console.WriteLine("--------------------------------");
+                round++;
+            }
 
             Console.ReadKey();
         }
